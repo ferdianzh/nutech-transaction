@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/app.js",
-    "dev": "nodemon --watch \"src/**/*.ts\" --exec ts-node src/app.ts",
+    "dev": "nodemon --watch \"src/**/*.ts\" --exec ts-node --files src/app.ts",
     "migrate": "ts-node src/scripts/migrate.ts",
     "rollback": "ts-node src/scripts/rollback.ts",
     "rollback:all": "ts-node src/scripts/rollback-all.ts",
@@ -20,6 +20,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
+    "multer": "^2.1.1",
     "mysql2": "^3.22.4",
     "umzug": "^3.8.3",
     "zod": "^4.4.3"
@@ -28,6 +29,7 @@
     "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.1.0",
     "@types/node": "^25.9.1",
     "eslint": "^10.4.1",
     "nodemon": "^3.1.14",

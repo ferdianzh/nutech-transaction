@@ -9,7 +9,7 @@ export class AuthService {
 
   async login(loginDto: LoginDto) {
     const { email, password } = loginDto;
-    const profile = await this.profileRepository.findByEmail(email);
+    const profile = await this.profileRepository.findOneAuth(email);
 
     if (!profile) {
       throw new AuthError("Username atau password salah", 103);

@@ -1,15 +1,18 @@
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
 import config from "./config/config";
 import { AuthRouter } from "./modules/auth/auth.router";
 import { errorMiddleware } from "./middleware/error.middleware";
+import { ProfileRouter } from "./modules/profile/profile.router";
 
 const app = express();
 
 app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 
 app.use("/", AuthRouter);
+app.use("/profile", ProfileRouter);
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Hello World!");
 });
 

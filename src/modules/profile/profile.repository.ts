@@ -21,33 +21,21 @@ export class ProfileRepository {
     return rows.insertId;
   }
 
-  async update(id: string, data: UpdateProfileDto) {
-    const { first_name, last_name, profile_image } = data;
-    const [rows] = await pool.execute(
-      `
-      UPDATE profile
-      SET first_name = ?, last_name = ?, profile_image = ?
-      WHERE id = ?
-      `,
-      [first_name ?? null, last_name ?? null, profile_image ?? null, id],
-    );
-
-    return rows;
-  }
-
-  async findOne(id: string) {
+  async findOne(email: string) {
     const [rows] = await pool.execute(
       `
       SELECT email, first_name, last_name, profile_image
-      WHERE id = ?
+      FROM profile
+      WHERE email = ?
+      LIMIT 1
       `,
-      [id],
+      [email],
     );
 
-    return rows;
+    return (rows as any[])[0] ?? null;
   }
 
-  async findByEmail(email: string) {
+  async findOneAuth(email: string) {
     const [rows] = await pool.execute(
       `
       SELECT id, email, password
@@ -59,5 +47,19 @@ export class ProfileRepository {
     );
 
     return (rows as any[])[0] ?? null;
+  }
+
+  async update(email: string, data: UpdateProfileDto) {
+    const { first_name, last_name, profile_image } = data;
+    const [rows] = await pool.execute<ResultSetHeader>(
+      `
+      UPDATE profile
+      SET first_name = ?, last_name = ?, profile_image = ?
+      WHERE email = ?
+      `,
+      [first_name ?? null, last_name ?? null, profile_image ?? null, email],
+    );
+
+    return rows;
   }
 }

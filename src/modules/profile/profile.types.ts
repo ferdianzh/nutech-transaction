@@ -1,3 +1,5 @@
+import z from "zod";
+
 export interface Profile {
   email: string;
   password: string;
@@ -13,8 +15,12 @@ export interface CreateProfileDto {
   last_name?: string;
 }
 
-export interface UpdateProfileDto {
-  first_name?: string;
-  last_name?: string;
-  profile_image?: string;
-}
+export const UpdateProfileSchema = z.object({
+  first_name: z.string("Paramter first_name tidak sesuai format"),
+  last_name: z.string("Paramter last_name tidak sesuai format"),
+  profile_image: z
+    .string("Parameter profile_image tidak sesuai format")
+    .optional(),
+});
+
+export type UpdateProfileDto = z.infer<typeof UpdateProfileSchema>;
