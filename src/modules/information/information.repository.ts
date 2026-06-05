@@ -9,7 +9,7 @@ export class InformationRepository {
       `,
     );
 
-    return (rows as any[])[0] ?? [];
+    return (rows as any[]) ?? [];
   }
 
   async findAllService() {
@@ -20,6 +20,6 @@ export class InformationRepository {
       `,
     );
 
-    return (rows as any[])[0] ?? [];
+    return (rows as any[]) ?? [];
   }
 }

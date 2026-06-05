@@ -10,6 +10,7 @@
     "migrate": "ts-node src/scripts/migrate.ts",
     "rollback": "ts-node src/scripts/rollback.ts",
     "rollback:all": "ts-node src/scripts/rollback-all.ts",
+    "seed:all": "ts-node src/scripts/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
