@@ -2,7 +2,7 @@ import { sign, verify } from "jsonwebtoken";
 import config from "../config/config";
 
 export interface JwtPayload {
-  profileId: string;
+  profile_id: number;
   email: string;
 }
 

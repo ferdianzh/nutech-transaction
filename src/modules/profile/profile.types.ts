@@ -1,6 +1,7 @@
 import z from "zod";
 
 export interface Profile {
+  id: string;
   email: string;
   password: string;
   first_name: string | null;

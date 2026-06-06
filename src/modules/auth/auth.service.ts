@@ -22,7 +22,7 @@ export class AuthService {
     }
 
     const token = signToken({
-      profileId: profile.id,
+      profile_id: profile.id,
       email: profile.email,
     });
 

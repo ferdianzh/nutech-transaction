@@ -4,6 +4,7 @@ import { AuthRouter } from "./modules/auth/auth.router";
 import { errorMiddleware } from "./middleware/error.middleware";
 import { ProfileRouter } from "./modules/profile/profile.router";
 import { InformationRouter } from "./modules/information/information.router";
+import { TransactionRouter } from "./modules/transaction/transaction.route";
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use("/uploads", express.static("uploads"));
 app.use("/", AuthRouter);
 app.use("/profile", ProfileRouter);
 app.use("/", InformationRouter);
+app.use("/", TransactionRouter);
 
 app.get("/", (_req, res) => {
   res.send("Hello World!");
