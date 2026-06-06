@@ -5,8 +5,7 @@ Simple transaction API
 
 ## Public Host
 
-Can be accessed via link below
-[Link Text](https://nutech-transaction-1476.up.railway.app)
+Can be accessed via link this [Railway Link](https://nutech-transaction-1476.up.railway.app)
 
 
 ## Local Host
