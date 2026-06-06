@@ -88,11 +88,15 @@ export class TransactionService {
   }
 
   async history(profile_id: number, { offset = undefined, limit = undefined }) {
-    return await this.transactionRepository.findAll({
+    const transactions = await this.transactionRepository.findAll({
       profile_id,
       offset,
       limit,
     });
+    return transactions.map((el) => ({
+      ...el,
+      total_amount: Number(el.total_amount),
+    }));
   }
 
   private async generateInvoiceNumber() {

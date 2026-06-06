@@ -139,7 +139,7 @@ export class TransactionRepository {
         transaction_type,
         description,
         total_amount,
-        balance
+        created_on
       FROM transaction
       WHERE profile_id = ?
       ORDER BY created_on DESC
